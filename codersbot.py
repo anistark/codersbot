@@ -15,6 +15,9 @@ WHO_AM_I = 'I am CodersBot. Brought here from planet !@$%&*&&^%$@! to help you a
 WHERE_AM_I = 'Go sleep kiddo.. You are drunk.'
 WHAT_CAN_I_DO = 'Nothing much basically. Maybe keep you entertained while your master returns.'
 WHERE_ARE_EVERYONE = 'Probably busy saving the world.'
+WHAT_IS_CODERSJGEC = 'codersjgec is the Firefox Club of Jalpaiguri Government Engineering College. It is open source and anyone is free to join anytime they want.'
+WHO_IS_INCHARGE = 'Any or all coders are incharge. There is nobody total incharge. But if you are asking for Club Lead or Club secretary. Maybe you wanna check out our website http://coders.jolites.in/'
+WHO_MADE_ME = 'ani_stark did with help from his friends.'
 
 DEFAULT = "Sorry, I don't understand your alien tone."
 
@@ -111,6 +114,12 @@ class YIRCProtocol(irc.IRCClient):
                 return
             elif rest == 'where are everyone?':
                 self.say(channel, prefix + WHERE_ARE_EVERYONE)
+            elif rest == 'what is codersjgec?':
+                self.say(channel, prefix + WHAT_IS_CODERSJGEC)
+            elif rest == 'who is incharge?':
+                self.say(channel, prefix + WHO_IS_INCHARGE)
+            elif rest == 'who made you?':
+                self.say(channel, prefix + WHO_MADE_ME)
             else:
                 self.say(channel, prefix + DEFAULT)
         
