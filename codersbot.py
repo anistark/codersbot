@@ -11,12 +11,12 @@ from twisted.application import internet, service
 from collections import defaultdict
 HOST, PORT = 'irc.mozilla.org', 6667
 
-WHO_AM_I = 'I am CodersBot, blah blah. I am the jarvis Mk 0.01.'
+WHO_AM_I = 'I am CodersBot. Brought here from planet !@$%&*&&^%$@! to help you all through this channel.'
 WHERE_AM_I = 'Go sleep kiddo.. You are drunk.'
-WHAT_CAN_I_DO = ("/msg me a `!ping' and I'll pong you; /msg me some text: `!saylater <delay-in-seconds> <sometext>' and "
-                + "I'll bang your head if talk more. You moron, my head is hurting.")
+WHAT_CAN_I_DO = 'Nothing much basically. Maybe keep you entertained while your master returns.'
+WHERE_ARE_EVERYONE = 'Probably busy saving the world.'
 
-DEFAULT = "Sorry, I don't understand your mutilated language. STFU."
+DEFAULT = "Sorry, I don't understand your alien tone."
 
 #-------------------------------------------------------------------------------
 # Markov chain sentence generator, from
@@ -109,6 +109,10 @@ class YIRCProtocol(irc.IRCClient):
             elif rest == 'what can you do?':
                 self.say(channel, prefix + WHAT_CAN_I_DO)
                 return
+            elif rest == 'where are everyone?':
+                self.say(channel, prefix + WHERE_ARE_EVERYONE)
+            else:
+                self.say(channel, prefix + DEFAULT)
         
         self.factory.generator.train(rest, self.factory.chain_length, True)
 
