@@ -11,7 +11,7 @@ from twisted.application import internet, service
 from collections import defaultdict
 HOST, PORT = 'irc.mozilla.org', 6667
 
-WHO_AM_I = 'I am CodersBot. Brought here from planet !@$%&*&&^%$@! to help you all through this channel.'
+WHO_AM_I = 'I am codersbot. Brought here from planet !@$%&*&&^%$@! to help you all through this channel.'
 WHERE_AM_I = 'Go sleep kiddo.. You are drunk.'
 WHAT_CAN_I_DO = 'Nothing much basically. Maybe keep you entertained while your master returns.'
 WHERE_ARE_EVERYONE = 'Probably busy saving the world.'
@@ -84,7 +84,7 @@ class MarkovGenerator(object):
         return ' '.join(message)
 
 class YIRCProtocol(irc.IRCClient):
-    nickname = 'CodersBot'
+    nickname = 'codersbot'
     mentioned_regex = re.compile(nickname + r"\s*[:,]* ?", re.I)
 
     def signedOn(self):
@@ -120,6 +120,8 @@ class YIRCProtocol(irc.IRCClient):
                 self.say(channel, prefix + WHO_IS_INCHARGE)
             elif rest == 'who made you?':
                 self.say(channel, prefix + WHO_MADE_ME)
+            elif rest == 'hi':
+                self.say(channel, prefix + 'hii')
             else:
                 self.say(channel, prefix + DEFAULT)
         
@@ -197,7 +199,7 @@ if __name__ == '__main__':
     reactor.run()
 
 elif __name__ == '__builtin__':
-    application = service.Application('CodersBot')
+    application = service.Application('codersbot')
     ircService = internet.TCPClient(HOST, PORT, YIRCFactory())
     ircService.setServiceParent(application)
 
