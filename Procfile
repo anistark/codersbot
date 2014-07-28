@@ -1,1 +1,1 @@
-web: python codersbot.py --log-file=-
+worker: python codersbot.py --log-file=-
