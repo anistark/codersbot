@@ -1,1 +1,1 @@
-worker: python codersbot.py --log-file=-
+worker: newrelic-admin run-program python codersbot.py --log-file=-
